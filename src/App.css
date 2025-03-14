@@ -1,42 +1,35 @@
-
+/* General Styles */
 body {
-  background: linear-gradient(to right,#ffedea, #fadcdc); /* Soft gradient */
+  background: #ffedea; /* Fallback color */
+  background: linear-gradient(to right, #ffedea, #fadcdc);
   font-family: "Marcellus", serif;
   text-align: center;
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
   justify-content: center;
-  text-align: center;
   min-height: 100vh;
+}
+
+.header-box {
+  margin-bottom: 20px;
 }
 
 .subheader {
   font-size: 1.4rem;
   font-weight: 200;
-  color: #7c4444; 
-  margin-bottom: 5px;
+  color: #7c4444;
 }
 
-.total-cards {
+.total-cards, h3 {
   font-size: 1.2rem;
-  color: #612a2a; 
+  color: #612a2a;
   font-weight: 400;
 }
 
-.header {
-  font-size: 2.0rem; 
-  font-weight: 200;
-  color: #5a3e2b;
-  text-transform: uppercase;
-  letter-spacing: 1.2px;
-  margin-bottom: 5px; 
-}
-
-
-
+/* Flashcard Styles */
 .flashcard-container {
   display: flex;
   justify-content: center;
@@ -57,23 +50,15 @@ body {
   border-radius: 15px;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
 }
+
 .flashcard:hover {
-  transform: scale(1.05); 
-  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2); 
+  transform: scale(1.05);
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
 }
 
-
-.flashcard:hover .front {
-  background: linear-gradient(to right, #c29ba2, #b47a86); /* Warmer shade */
-}
-
-.flashcard:hover .back {
-  background: linear-gradient(to right, #ead4dc,#ecced9); /* Warmer gold */
-}
 .flashcard.flipped {
   transform: rotateY(180deg);
 }
-
 
 .flashcard-face {
   width: 100%;
@@ -92,8 +77,8 @@ body {
 }
 
 .front {
-  background: linear-gradient(to right, #ead4dc,#ecced9); 
-  color: #4A4A4A;
+  background: linear-gradient(to right, #ead4dc, #ecced9);
+  color: #4a4a4a;
   font-size: 1.6rem;
   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
 }
@@ -104,43 +89,135 @@ body {
   transform: rotateY(180deg);
 }
 
-
+/* Image on the back of the card */
 .flag {
-  width: 70%; 
-  max-width: 200px; 
-  height: 165px; 
+  width: 70%;
+  max-width: 200px;
+  height: 165px;
   border-radius: 10px;
   margin-top: 15px;
   box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.15);
 }
 
+/* Answer Input */
+.answer-input {
+  background-color: #e9e6e6;
+  width: 80%;
+  padding: 10px;
+  font-size: 0.9rem;
+  border: 2px solid #e1dfdf;
+  border-radius: 20px;
+  outline: none;
+  transition: border 0.3s ease, background-color 0.3s ease;
+}
 
+/* Turn red when answer is wrong */
+.incorrect-input {
+  border: 2px solid #d25b5b;
+  background-color: #ffe5e5;
+}
+
+/* Error Message (Wrong Answer! Try Again.) */
+.error-text {
+  color: #d25b5b;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: 5px;
+  background: rgba(255, 220, 220, 0.5);
+  padding: 5px 10px;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+/* Buttons */
+.submit-btn {
+  background-color: #b47a86;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #9e5f70;
+  transform: scale(1.05);
+}
+
+/* Navigation Buttons */
 .button-container {
   margin-top: 20px;
 }
 
 .nav-btn {
-  width: 120px; 
-  height: 50px; 
+  width: 155px;
+  height: 50px;
   margin: 10px;
   padding: 12px 25px;
   font-size: 1.2rem;
-  font-weight: bold;
+  font-weight: 500;
   border: none;
-  border-radius: 8px;
+  border-radius: 20px;
   background-color: #dab6c3;
   color: white;
   cursor: pointer;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
-  transition: background 0.3s, transform 0.2s;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
 .nav-btn:hover {
   background-color: #b47a86;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.15);
 }
 
 .nav-btn:active {
   transform: translateY(2px);
+}
+
+/* Disabled Button */
+.nav-btn:disabled {
+  background-color: #c4b1b6;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Mark as Mastered Button */
+.master-btn {
+  background-color: #87c28b;
+  color: white;
+  font-size: 1rem;
+  width: 155px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.master-btn:hover {
+  background-color: #6aa86e;
+  transform: scale(1.05);
+}
+
+/* Container */
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.App {
+  position: relative;
+  z-index: 1;
 }
 
